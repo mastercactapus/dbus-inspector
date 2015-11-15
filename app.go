@@ -148,7 +148,7 @@ func handleListInterfaces(w http.ResponseWriter, r *http.Request) {
 	js(w, &n)
 }
 
-func ListenAndServe(addr string) {
+func ListenAndServe(addr string) error {
 	r := mux.NewRouter()
 	r.HandleFunc("/api/bus/{bus}", handleListServices)
 	r.HandleFunc("/api/bus/{bus}/{service}", handleListObjects)
@@ -157,5 +157,5 @@ func ListenAndServe(addr string) {
 	r.HandleFunc("/", index)
 
 	log.Infoln("Listening:", addr)
-	http.ListenAndServe(addr, r)
+	return http.ListenAndServe(addr, r)
 }
