@@ -1,0 +1,11 @@
+
+body {
+	margin: 8px;
+}
+
+#app {
+	position: absolute;
+	top: 8px;
+	bottom: 8px;
+	width: calc(100% - 16px);
+}
